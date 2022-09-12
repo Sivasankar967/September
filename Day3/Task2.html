@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <p id="show"></p>
+</head>
+<body>
+    <script>
+         function factorial(x)  {
+         if  (  x === 0) {
+        return 1;
+}
+       else {
+       return  x * factorial(x - 1);
+     }
+    };
+
+    const x= 3;
+     if (x> 0) {
+     const  result  = factorial(x) ;
+    //  document.getElementById('show').innerHTML=(`The factorial of ${num} is ${result}`);
+    console.log(`The factorial of ${x} is  ${result} `);
+}
+        
+
+//  document.write(`The factorial of ${num} is ${result}`);
+    </script>
+    
+</body>
+</html>
