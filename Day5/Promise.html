@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+<script>
+  
+let urls = [
+'https://jsonplaceholder.typicode.com/todos/1',
+  'https://api.spacexdata.com/v3/launches',
+  'https://api.github.com/users/jeresig'
+];
+
+let requests = urls.map(url => fetch(url));
+
+Promise.all(requests)
+  .then(responses => responses.forEach(
+    response => console.log(`${response.url}: ${response.status}`)
+  ));
+
+//   console.log(requests)
+
+
+<h2> Promise</h2>
+
+ const mypromise= new Promise ((res,rej)=>{
+    fetch('https://api.spacexdata.com/v3/launches')
+  .then(response => response.json())
+  .then(json => console.log(json))
+ })
+
+ console.log(mypromise);
+     
+
+<h2>Promise Race </h2>
+
+const promise1 = new Promise((resolve, reject) => {
+    fetch('https://api.spacexdata.com/v3/launches')
+  .then(response => response.json())
+  .then(json => console.table(json))
+});
+const promise2 = new Promise((resolve, reject) => {
+    fetch('https://api.spacexdata.com/v3/launches')
+  .then(response => response.json())
+  .then(json => console.table(json))
+});
+const get=Promise.race([promise1, promise2]).then((value) => {
+//   console.table(value);
+document.write('get')
+});
+</script>
+
+</body>
+</html>
